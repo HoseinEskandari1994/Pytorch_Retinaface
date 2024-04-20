@@ -107,6 +107,10 @@ class RetinaFace(nn.Module):
     def forward(self,inputs):
         out = self.body(inputs)
 
+        print("-----IntermediateLayerGetter output: -----")
+        print([v.shape for k, v in out.items()])
+        print('------------------------------------------')
+
         # FPN
         fpn = self.fpn(out)
 
